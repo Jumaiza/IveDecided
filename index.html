@@ -1,0 +1,157 @@
+<html>
+    <head>
+        <title>Twinkling Night Sky</title>
+        <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,1000;1,400&display=swap" rel="stylesheet">
+        <style>
+            
+* {
+    margin: 0;
+    padding: 0;
+}
+
+@keyframes move-twink-back {
+    from {background-position:0 0;}
+    to {background-position:-10000px 5000px;}
+}
+
+@keyframes move-clouds-back {
+    from {background-position:0 0;}
+    to {background-position:10000px 0;}
+}
+
+.stars, .twinkling, .clouds {
+  position:absolute;
+  top:0;
+  left:0;
+  right:0;
+  bottom:0;
+  width:100%;
+  height:100%;
+  display:block;
+}
+
+.stars {
+  background:#000 url(stars.png) repeat top center;
+  z-index:1;
+}
+
+.twinkling{
+  background:transparent url("twinkling.png") repeat top center;
+  z-index:2;
+  animation:move-twink-back 200s linear infinite;
+}
+
+.clouds{
+    background:transparent url("clouds.png") repeat top center;
+    z-index:3;
+    opacity: .15;
+    animation:move-clouds-back 200s linear infinite;
+}
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  border: none;
+  outline: none;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 10px;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  height: 110vh;
+  width: 100vw;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.scroll-parent {
+  position: relative;
+  width: 100vw;
+  height: 100rem;
+  padding: 2rem 0;
+  overflow-x: hidden;
+  z-index: 4;
+}
+
+.scroll-element {
+  width: inherit;
+  height: inherit;
+  position: absolute;
+  left: 0%;
+  top: 0%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.scroll-element img {
+  width: 30%;
+}
+
+.primary {
+  animation: primary 15s linear infinite;
+}
+
+.secondary {
+  animation: secondary 15s linear infinite;
+}
+
+@keyframes primary {
+  from {
+    left: 0%;
+  }
+  to {
+    left: -100%;
+  }
+}
+
+@keyframes secondary {
+  from {
+    left: 100%;
+  }
+  to {
+    left: 0%;
+  }
+}
+
+        </style>
+    </head>
+    <body>
+      <div class="container">
+        <div class="stars"></div>
+      <div class="twinkling"></div>
+      <div class="clouds"></div>
+        <div class="scroll-parent">
+          <div class="scroll-element primary">
+            <img
+              src="purplehoodie.png"
+            />
+            <img
+              src="blackpants.png"
+            />
+            <img
+              src="tanhoodie.png"
+            />
+          </div>
+          <div class="scroll-element secondary">
+              <img
+              src="greenpants.png"
+            />
+            <img
+              src="blackhoodie.png"
+            />
+            <img
+              src="brownpants.png"
+            />
+          </div>
+        </div>
+      </div>
+    </body>
+</html>
