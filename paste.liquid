@@ -1,0 +1,118 @@
+{%- style -%}
+  @keyframes move-twink-back {
+    from {
+      background-position: 0 0;
+    }
+    to {
+      background-position: -10000px 5000px;
+    }
+  }
+
+  @keyframes move-clouds-back {
+    from {
+      background-position: 0 0;
+    }
+    to {
+      background-position: 10000px 0;
+    }
+  }
+
+  .stars,
+  .twinkling,
+  .clouds {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .stars {
+    background: #000 url("stars.png") repeat top center;
+    z-index: 0;
+  }
+
+  .twinkling {
+    background: transparent url("twinkling.png") repeat top center;
+    z-index: 1;
+    animation: move-twink-back 200s linear infinite;
+  }
+
+  .clouds {
+    background: transparent url("clouds.png") repeat top center;
+    z-index: 2;
+    opacity: .15;
+    animation: move-clouds-back 200s linear infinite;
+  }
+
+  .scroll-parent {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+  }
+
+  .scroll-element {
+    width: inherit;
+    height: inherit;
+    position: absolute;
+    left: 0;
+    top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    z-index: 4;
+  }
+
+  .scroll-element img {
+    width: 30%;
+  }
+
+  .primary {
+    animation: primary 15s linear infinite;
+  }
+
+  .secondary {
+    animation: secondary 15s linear infinite;
+  }
+
+  @keyframes primary {
+    from {
+      left: 0;
+    }
+    to {
+      left: -100%;
+    }
+  }
+
+  @keyframes secondary {
+    from {
+      left: 100%;
+    }
+    to {
+      left: 0;
+    }
+  }
+{%- endstyle -%}
+
+<div class="space">
+  <div class="stars"></div>
+  <div class="twinkling"></div>
+  <div class="clouds"></div>
+  <div class="scroll-parent">
+    <div class="scroll-element primary">
+      <img src="{{ 'purplehoodie.png' | asset_url }}" />
+      <img src="{{ 'blackpants.png' | asset_url }}" />
+      <img src="{{ 'tanhoodie.png' | asset_url }}" />
+    </div>
+    <div class="scroll-element secondary">
+      <img src="{{ 'greenpants.png' | asset_url }}">
+      <img src="{{ 'blackhoodie.png' | asset_url }}">
+      <img src="{{ 'brownpants.png' | asset_url }}">
+    </div>
+  </div>
+</div>

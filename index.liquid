@@ -1,13 +1,7 @@
 <html>
     <head>
         <title>Twinkling Night Sky</title>
-        <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,1000;1,400&display=swap" rel="stylesheet">
-        <style>
-            
-* {
-    margin: 0;
-    padding: 0;
-}
+<style>
 
 @keyframes move-twink-back {
     from {background-position:0 0;}
@@ -27,57 +21,33 @@
   bottom:0;
   width:100%;
   height:100%;
-  display:block;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .stars {
-  background:#000 url(stars.png) repeat top center;
-  z-index:1;
+  background:#000 url("stars.png") repeat top center;
+  z-index:0;
 }
 
 .twinkling{
   background:transparent url("twinkling.png") repeat top center;
-  z-index:2;
+  z-index:1;
   animation:move-twink-back 200s linear infinite;
 }
 
 .clouds{
     background:transparent url("clouds.png") repeat top center;
-    z-index:3;
+    z-index:2;
     opacity: .15;
     animation:move-clouds-back 200s linear infinite;
 }
 
-*,
-*::after,
-*::before {
-  margin: 0;
-  padding: 0;
-  border: none;
-  outline: none;
-  box-sizing: border-box;
-}
-
-html {
-  font-size: 10px;
-}
-
-.container {
-  display: flex;
-  align-items: center;
-  height: 110vh;
-  width: 100vw;
-  overflow: hidden;
-  z-index: 0;
-}
-
 .scroll-parent {
   position: relative;
-  width: 100vw;
-  height: 100rem;
-  padding: 2rem 0;
+  width: 100%;
+  height: 100%;
   overflow-x: hidden;
-  z-index: 4;
 }
 
 .scroll-element {
@@ -89,6 +59,7 @@ html {
   display: flex;
   align-items: center;
   justify-content: space-around;
+  z-index: 4;
 }
 
 .scroll-element img {
@@ -121,32 +92,25 @@ html {
   }
 }
 
-        </style>
+</style>
     </head>
     <body>
-      <div class="container">
+    <div class="space">
         <div class="stars"></div>
         <div class="twinkling"></div>
         <div class="clouds"></div>
         <div class="scroll-parent">
-          <div class="scroll-element primary">
-            <img
-              src="{{ 'purplehoodie.png' | asset_url }}"/>
-            <img
-              src="{{ 'blackpants.png' | asset_url }}"/>
-            <img
-              src="{{ 'tanhoodie.png' | asset_url }}"
->
-          </div>
-          <div class="scroll-element secondary">
-              <img
-              src="{{ 'greenpants.png' | asset_url }}"/>
-            <img
-              src="{{ 'blackhoodie.png' | asset_url }}"/>
-            <img
-              src="{{ 'brownpants.png' | asset_url }}"/>
-          </div>
+            <div class="scroll-element primary">
+                <img src="{{ 'purplehoodie.png' | asset_url }}"/>
+                <img src="{{ 'blackpants.png' | asset_url }}"/>
+                <img src="{{ 'tanhoodie.png' | asset_url }}"/>
+            </div>
+            <div class="scroll-element secondary">
+                <img src="{{ 'greenpants.png' | asset_url }}">
+                <img src="{{ 'blackhoodie.png' | asset_url }}">
+                <img src="{{ 'brownpants.png' | asset_url }}"> 
+            </div>
         </div>
-      </div>
+    </div>
     </body>
 </html>
